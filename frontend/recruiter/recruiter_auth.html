@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidate Sign In</title>
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --accent: #10b981;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --light: #fff7c2; /* light yellow */
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --form-bg: #0d3b1e; /* dark green */
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: #3b2f13;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        .auth-container {
+            max-width: 400px;
+            margin: 4rem auto;
+            background: var(--light);
+            border-radius: 16px;
+            box-shadow: 0 2px 12px 0 rgba(200, 170, 60, 0.07);
+            padding: 2.5rem 2rem;
+        }
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            border: 2px solid #000; /* Single black border */
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            background: var(--form-bg); /* Dark green background */
+            margin-bottom: 1.5rem;
+        }
+        .auth-container h2 {
+            text-align: center;
+            color: #d7263d;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        .auth-form label {
+            font-weight: 600;
+            color: #fff; /* White label text for contrast */
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .auth-form input {
+            padding: 0.75rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #fff;
+            color: #3b2f13;
+            transition: border 0.2s;
+            width: 100%;
+            display: block;
+        }
+        .auth-form input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        .auth-form button {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .auth-form button:hover {
+            background: var(--primary-dark);
+        }
+        .switch-link {
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        .switch-link a {
+            color: var(--primary);
+            text-decoration: none;
+            margin-left: 0.3rem;
+        }
+        .switch-link a:hover {
+            text-decoration: underline;
+        }
+        .auth-form > div {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <h2>Candidate Sign In</h2>
+        <form class="auth-form" autocomplete="off">
+            <div>
+                <label for="regno">Registration Number</label>
+                <input type="text" id="regno" name="regno" maxlength="20" required>
+            </div>
+            <div>
+                <label for="examid">General Exam ID</label>
+                <input type="text" id="examid" name="examid" maxlength="20" required>
+            </div>
+            <div>
+                <label for="last3">Last 3 digits of Registration Number</label>
+                <input type="text" id="last3" name="last3" maxlength="3" pattern="\d{3}" required>
+            </div>
+            <button type="submit">Sign In</button>
+        </form>
+        <div class="switch-link">
+            Not you? <a href="#">Go back</a>
+        </div>
+    </div>
+</body>
+</html>
