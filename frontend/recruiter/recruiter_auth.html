@@ -1,31 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Candidate Sign In</title>
-    <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Sign In / Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" >
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <div class="auth-container">
-        <h2>Candidate Sign In</h2>
-        <form class="auth-form" autocomplete="off">
-            <div>
-                <label for="regno">Registration Number</label>
-                <input type="text" id="regno" name="regno" maxlength="20" required>
-            </div>
-            <div>
-                <label for="examid">General Exam ID</label>
-                <input type="text" id="examid" name="examid" maxlength="20" required>
-            </div>
-            <div>
-                <label for="last3">Last 3 digits of Registration Number</label>
-                <input type="text" id="last3" name="last3" maxlength="3" pattern="\d{3}" required>
-            </div>
-            <button type="submit">Sign In</button>
-        </form>
-        <div class="switch-link">
-            Not you? <a href="#">Go back</a>
-        </div>
-    </div>
+  <div class="auth-container">
+    <!-- Removed the tabs with Login and Signup buttons -->
+    <form id="loginForm" class="auth-form active" autocomplete="off">
+      <h2>Login</h2>
+      <div>
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" required placeholder="Enter your email">
+      </div>
+      <div>
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" required placeholder="Enter your password">
+      </div>
+      <button type="submit">Login</button>
+      <div class="switch-link">
+        Don't have an account?
+        <a href="javascript:void(0)" onclick="showForm('signup')">Sign Up</a>
+      </div>
+    </form>
+    <form id="signupForm" class="auth-form" autocomplete="off" style="display:none;">
+      <h2>Sign Up</h2>
+      <div>
+        <label for="signup-username">Username</label>
+        <input type="text" id="signup-username" required placeholder="Choose a username">
+      </div>
+      <div>
+        <label for="signup-email">Email</label>
+        <input type="email" id="signup-email" required placeholder="Enter your email">
+      </div>
+      <div>
+        <label for="signup-password">Password</label>
+        <input type="password" id="signup-password" required placeholder="Create a password">
+      </div>
+      <button type="submit">Sign Up</button>
+      <div class="switch-link">
+        Already have an account?
+        <a href="javascript:void(0)" onclick="showForm('login')">Login</a>
+      </div>
+    </form>
+  </div>
+  <script>
+    function showForm(form) {
+      const loginForm = document.getElementById('loginForm');
+      const signupForm = document.getElementById('signupForm');
+
+      if (form === 'login') {
+        loginForm.classList.add('active');
+        signupForm.classList.remove('active');
+        loginForm.style.display = 'flex';
+        signupForm.style.display = 'none';
+      } else {
+        signupForm.classList.add('active');
+        loginForm.classList.remove('active');
+        signupForm.style.display = 'flex';
+        loginForm.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
